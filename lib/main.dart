@@ -39,16 +39,59 @@ class _MyWidgetState extends State<MyWidget> {
           style: TextStyle(fontSize: 40, color: Colors.amberAccent),
         )),
       ),
-      body: Card(
-        child: Text(
-          "الصعوبات اليومية",
-          style: TextStyle(fontSize: 40, color: Colors.amberAccent),
+      body: Column(
+        children: [
+          Card(
+            child: Container(
+          
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    "الصعوبات اليومية",
+                    style: TextStyle(fontSize: 40, color: Colors.amberAccent),
+                    textDirection: TextDirection.rtl,),
+                  Row(
+                    children: [
+                      Icon(Icons.delete),
+                      SizedBox(width: 200),
+                      Text("data",
+                          style: TextStyle(fontSize: 40, color: Colors.amberAccent,),
+                          textDirection: TextDirection.rtl,
+                          ),
+                    ],
+                  ),
+                      
+                ],
+              ),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(11),
+            ),
+            color: Color.fromARGB(255, 65, 54, 135),
+            margin: EdgeInsets.all(8),
+          ),
+       
+       Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              "الصعوبات اليومية",
+              style: TextStyle(fontSize: 40, color: Colors.amberAccent),
+            ),
+            Text("data",
+                style: TextStyle(fontSize: 40, color: Colors.amberAccent,))
+          ],
         ),
-        shape: ContinuousRectangleBorder(
-          borderRadius: BorderRadius.circular(28.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(11),
         ),
         color: Color.fromARGB(255, 65, 54, 135),
-        margin: EdgeInsets.all(30),
+        margin: EdgeInsets.all(8),
+      ),
+    ],
       ),
     );
   }
