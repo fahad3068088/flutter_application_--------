@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors
 
-import 'dart:developer';
-import 'dart:ui';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
+
+import 'fahad/ali.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,10 +20,11 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class Bb {
   String titl;
-   String hh;
-  Bb({required this.hh,required this.titl});
+  String hh;
+  Bb({required this.hh, required this.titl});
 }
 
 class MyWidget extends StatefulWidget {
@@ -33,72 +35,40 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
-List nn=[
-  Bb(titl:"aaaaaaaaa",hh:"false"),
-  Bb(titl:"aaaaaaaaa",hh:"false")
-];
+  List nn = [
+    Bb(titl: "aaaaaaaaa", hh: "false"),
+    Bb(titl: "bbbbbbbbbbbb", hh: "false")
+  ];
+  delet(e) {
+    setState(() {
+      nn.remove(e);
+    });
+  }
+  ali(){
+    setState(() {
+      nn.add(Bb(hh: "فهد", titl: "عسى ربي يوفقك"));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: (() {}),
+        onPressed: (() {ali();}),
         backgroundColor: Colors.black,
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 45, 54, 156),
+        // ignore: prefer_const_constructors
         title: Center(
             child: Text(
           "الصعوبات اليومية",
           style: TextStyle(fontSize: 40, color: Colors.amberAccent),
         )),
       ),
-      body: Column(
-        children: [
-          Card(
-            // ignore: sort_child_properties_last
-            child: Container(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  // ignore: prefer_const_constructors
-                  Text(
-                    "الصعوبات اليومية",
-                    style: TextStyle(fontSize: 40, color: Colors.amberAccent),
-                    textDirection: TextDirection.rtl,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.delete),
-                        color: Colors.red,
-                        iconSize: 30,
-                      ),
-                      // ignore: prefer_const_constructors
-                      SizedBox(width: 200),
-                      Text(
-                        "data",
-                        style: TextStyle(
-                          fontSize: 40,
-                          color: Colors.amberAccent,
-                        ),
-                        textDirection: TextDirection.rtl,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(11),
-            ),
-            color: Color.fromARGB(255, 65, 54, 135),
-            margin: EdgeInsets.all(8),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(children: nn.map((e) => dd(delet: delet, e: e)).toList()),
       ),
     );
   }
