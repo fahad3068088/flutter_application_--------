@@ -54,7 +54,30 @@ class _MyWidgetState extends State<MyWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: (() {ali();}),
+        onPressed: (() {
+         
+          showModalBottomSheet(
+             isScrollControlled : true,
+              context: context,
+              builder: (BuildContext context) {
+                return Container(
+                  color:Color.fromARGB(255, 228, 234, 235),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      TextField( controller: ss,  ),
+                      SizedBox(),
+                      TextField(),
+                      SizedBox(),
+                      TextButton
+                      (onPressed: (){Navigator.pop(context); nnNwoApp();}, 
+                      child: Text("اضغط"))
+                    ],
+                  ),
+                );
+              });
+        }),
         backgroundColor: Colors.black,
         child: Icon(Icons.add),
       ),
