@@ -44,35 +44,43 @@ class _MyWidgetState extends State<MyWidget> {
       nn.remove(e);
     });
   }
-  ali(){
+
+  nnNwoApp() {
     setState(() {
-      nn.add(Bb(hh: "فهد", titl: "عسى ربي يوفقك"));
+      nn.add(Bb(hh: tt.text, titl: ss.text));
     });
   }
+
+  final ss = TextEditingController();
+  final tt = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: (() {
-         
           showModalBottomSheet(
-             isScrollControlled : true,
+              isScrollControlled: true,
               context: context,
               builder: (BuildContext context) {
                 return Container(
-                  color:Color.fromARGB(255, 228, 234, 235),
+                  color: Color.fromARGB(255, 228, 234, 235),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      TextField( controller: ss,  ),
+                      TextField(
+                        controller: ss,
+                      ),
                       SizedBox(),
-                      TextField(),
+                      TextField(controller: tt),
                       SizedBox(),
-                      TextButton
-                      (onPressed: (){Navigator.pop(context); nnNwoApp();}, 
-                      child: Text("اضغط"))
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            nnNwoApp();
+                          },
+                          child: Text("اضغط"))
                     ],
                   ),
                 );
